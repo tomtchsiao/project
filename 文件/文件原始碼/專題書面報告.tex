@@ -1,1 +1,87 @@
-
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{left=3cm, right=3cm, top=2.5cm, bottom=2.5cm}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\begin{document}
+\title{\fontsize{20pt}{20pt}\selectfont The impact of daily diet and exercise on weight}
+\author{
+    \href{mailto: korenson@cs.ccu.edu.tw}{Ren-Song Ko}, \href{mailto: wisleyqqq0630@alum.ccu.edu.tw}{Wen-Shuo Hsu}, and \href{mailto: stchi111u@cs.ccu.edu.tw}{Tzu-Chi Hsiao} \\ \\
+    Department of Computer Science and Information Engineering\\
+    National Chung Cheng University, Taiwan.\\ \\
+    \href{https://www2.cs.ccu.edu.tw/~stchi111u/project/gradp.html}{Official website} \\
+    \href{https://www2.cs.ccu.edu.tw/~stchi111u/project/source/TIDEW.zip}{Source code}
+}
+\date{}
+\maketitle
+\begin{abstract}
+\noindent
+Healthy eating and regular exercise have become popular ways for people to maintain their bodies. We aim to establish a website to calculate the actual weight for users. They can adjust or maintain their daily routines while observing the results. This website will provide BMI recommendations to help users achieve their health goals, whether it's losing weight, gaining weight, or maintaining their current weight. By using this platform, users can better understand their body conditions and make more informed health choices. The website will serve as a valuable tool for anyone looking to improve their overall well-being.
+\end{abstract}
+\begin{center}
+\textbf{Keywords:} Health, Weight Calculation, Daily Diet, Exercise, Website Development
+\end{center}
+\section*{I. Introduction}
+\noindent
+People emphasize health nowadays. We are interested in developing a website that displays the actual weight and a histogram to the user, provides a series of selections, and calculates the actual weight using our model. This website will allow users to input their daily routines, dietary habits, and exercise patterns. Based on this information, our model will calculate their actual weight and display it alongside a histogram that shows weight trends over time. Users will also have access to a variety of selections, such as different types of exercises and dietary plans, to see how these choices might impact their weight. The goal is to provide users with a comprehensive tool that not only tracks their weight but also offers insights and recommendations to help them achieve their health goals. By using this platform, users can make more informed decisions about their lifestyle and take proactive steps towards better health. The website will serve as an essential resource for anyone looking to improve their overall well-being and maintain a healthy lifestyle.
+\section*{II. Table and Formula}
+\noindent
+In this section, we present the tables and formulas used in our model to calculate the actual weight based on daily diet and exercise. \\
+\subsection*{A. Tables}
+Following is different daily diet habit will consume calories.
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Sedentary} & \textbf{Light} & \textbf{Moderate} & \textbf{Active} & \textbf{Very active} \\
+\hline
+1.2 & 1.375 & 1.55 & 1.725 & 1.9 \\
+\hline
+\end{tabular}
+\caption{Consume calories from the exercise.}
+\end{table}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Vegetarian} & \textbf{Meat} & \textbf{Lacto ovo vegetarian} & \textbf{Balanced} \\
+\hline
+1800 & 2500 & 2200 & 2000 \\
+\hline
+\end{tabular}
+\caption{Consume calories from the daily diet.}
+\end{table}
+\subsection*{B. Formulas}
+The following formulas are used to calculate the Basal Metabolic Rate (BMR), daily calorie needs, and the actual weight change.
+\begin{align*}
+    \text{Male's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
+    &\quad - (4.92 \times \text{age}) + (166 \times \text{gender} - 161) \\
+    \text{Female's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
+    &\quad - (4.92 \times \text{age}) + (166 \times \text{gender} - 161) \\
+    \text{Per day} &= \text{BMR} \times \text{Activity} \\
+    \text{Intake} &= \text{Daily diet type} \\
+    \text{Calorie deficit} &= \text{Intake} - \text{Calories per day} \\
+    \text{Weight changes} &= \frac{\text{Calorie deficit}}{7700} \\
+    \text{Actual weight after a month} &= \text{Weight} + \text{Weight changes} \times \text{After days}
+\end{align*}
+\noindent
+The first two formulas calculate the BMR for males and females respectively. The third formula calculates the daily calorie needs based on BMR and activity level. The fourth formula represents the daily calorie intake based on diet type. The fifth formula calculates the calorie deficit. The sixth formula calculates the weight changes. Finally, the seventh formula calculates the actual weight after 30 days.
+\section*{III. Improvement}
+\noindent
+We use precise tools to calculate the actual weight and provide accurate options for diet and exercise plans tailored to individual needs, ensuring personalized recommendations for optimal health and well-being.
+\section*{IV. Conclusion}
+\noindent
+We learned front-end and back-end technologies such as using HTML to establish the structure of our website and JavaScript to enhance its appearance. We also used Python with the Flask package to connect the front-end and back-end, while incorporating our formulas within the application. By leveraging HTML, we were able to create a well-organized and semantic structure for our web pages. JavaScript allowed us to add dynamic elements and improve user interaction, making the website more engaging and user-friendly. On the back-end, Python and Flask provided a robust framework for handling server-side logic, managing data, and ensuring seamless communication between the front-end and back-end. Our formulas, integrated within the Flask application, enable accurate calculations and data processing, ensuring that users receive precise and reliable information. This combination of technologies not only enhances the functionality and performance of our website but also provides a comprehensive learning experience in full-stack development. Through this project, we gained valuable insights into web development, from designing intuitive user interfaces to implementing efficient server-side operations.
+\section*{Reference}
+\noindent
+[1] https://tools.heho.com.tw/bmr/
+\end{document}

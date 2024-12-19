@@ -1,0 +1,68 @@
+\ProvidesPackage{slide}
+\usetheme{default}
+\usepackage{beamerthemesplit}
+\usepackage{xcolor}
+\usepackage{ctex}
+\usepackage{pifont}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{Green}{RGB}{0,100,0}
+\definecolor{lightyellow}{RGB}{255, 255, 224}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{invisible}
+\setbeamercolor{item}{fg=Green}
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\textcolor{Green}{\rule{0.8ex}{0.8ex}}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\textcolor{Green}{\rule{0.6ex}{0.6ex}}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\textcolor{Green}{\rule{0.4ex}{0.4ex}}}}
+\setbeamertemplate{section in toc}[sections unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{frametitle}{
+  \vspace*{0ex}
+  \begin{center}
+    \vbox{\strut\insertframetitle\strut}
+  \end{center}
+  \vspace*{-5ex}
+}
+\setbeamercolor{frametitle}{fg=black, bg=white}
+\setbeamerfont{frametitle}{size=\fontsize{16pt}{16pt}, family=\sffamily}
+\setbeamerfont{block title}{size=\Large, family=\sffamily}
+\setbeamerfont{block body}{size=\Large, family=\sffamily}
+\setbeamerfont{normal text}{size=\fontsize{13pt}{13pt}, family=\sffamily}
+\setbeamerfont{itemize}{size=\fontsize{13pt}{13pt}, family=\sffamily}
+\setbeamerfont{itemize subitem}{size=\fontsize{13pt}{13pt}, family=\sffamily}
+\setbeamercolor{title}{fg=black, bg=white}
+\setbeamercolor{author}{fg=black, bg=white}
+\setbeamercolor{date}{fg=black, bg=white}
+\setbeamerfont{headline}{series=\mdseries} 
+\setbeamerfont{footline}{series=\mdseries} 
+\setbeamercolor{section in head/foot}{bg=white, fg=black} 
+\setbeamercolor{author in head/foot}{bg=white, fg=black} 
+\setbeamercolor{title in head/foot}{bg=white, fg=black} 
+\setbeamercolor{date in head/foot}{bg=white, fg=black} 
+\setbeamercolor{page in head/foot}{bg=white, fg=black}
+\setbeamertemplate{footline}{
+  \leavevmode%
+\hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
+      \insertframenumber{} / \inserttotalframenumber \hspace*{1em}
+    \end{beamercolorbox}}%
+  \vskip1pt%
+}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,left]{section in head/foot}%
+      \hspace*{1em}\insertsection
+    \end{beamercolorbox}}%
+  \vskip1pt%
+}
+\setbeamercolor{block body}{bg=lightyellow}
+\setbeamercolor{block title}{bg=yellow!55!white, fg=black}
+\setbeamertemplate{itemize items}[square]
+\newenvironment{coloreditemize}[1][]{%
+  \begin{itemize}[#1]%
+    \setbeamercolor{item}{fg=#1}%
+}{%
+  \end{itemize}%
+}

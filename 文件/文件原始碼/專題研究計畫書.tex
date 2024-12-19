@@ -1,0 +1,52 @@
+\documentclass[a4paper]{article}
+\usepackage{fontspec}
+\usepackage{ctex}
+\setCJKmainfont{標楷體-繁}
+\setmainfont{Times New Roman}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{lastpage}
+\geometry{left=3cm, right=3cm, top=2.5cm, bottom=2.5cm}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{國立中正大學專題研究計畫書}
+\fancyhead[R]{\thepage\ of \pageref{LastPage}}
+\begin{document}
+\title{\fontsize{16pt}{16pt}\selectfont 國立中正大學專題研究計畫書}
+\author{
+    資工三 \hspace{0.1 cm} 蕭子期 411410055, 資工三 \hspace{0.1 cm} 許文碩 411410077 \\ \\
+    指導教授: 柯仁松教授
+}
+\date{}
+\maketitle
+\fontsize{12pt}{12pt}\selectfont
+\begin{center}
+專題關鍵字: 健康, 體重計算, 每日飲食, 運動, 網站開發
+\end{center}
+\section*{壹、專案名稱}
+\noindent
+The impact of daily diet and exercise on weight. (飲食及運動對體重影響)
+\section*{貳、簡述}
+\noindent
+現代人對健康議題越加重視，了解身體各項數據不僅能提早發現潛在的健康問題，亦能及時調整不健康的作息和飲食習慣。本專題旨在架設一個網站，讓用戶能夠預測每日飲食和運動對體重的影響。透過這個網站，用戶可以輸入他們的日常飲食、運動習慣以及其他生活方式的數據，系統將根據這些數據計算出實際體重變化，並提供圖表顯示體重趨勢。網站還會提供 BMI, TDEE 等健康相關之建議。這個平台不僅是一個追蹤體重的工具，更是一個健康管理的夥伴，幫助用戶做出更明智的健康選擇，改善整體生活品質。透過這個網站，用戶可以更好地了解自己的身體狀況，並採取積極的措施來維持或改善健康。
+\section*{參、專題技術}
+\noindent
+程式語言: Python, HTML, CSS \\
+開發工具: Flask \\
+美化: JavaScript
+\section*{肆、初步規劃}
+\noindent
+分為前端和後端，前端主要是網頁建立及美化，後端是 Python 計算及前後端互相傳送之 Flask。   \\ \\
+一、HTML 架設網站及美化。 \\
+二、Python 語言計算建議體重及 Flask。 \\
+三、JavaScript 直方圖顯示。
+\section*{伍、預期成果}
+\noindent
+提供用戶一個可視化的體重結果，幫助他們更直觀地了解體重變化和健康狀況。
+\end{document}
