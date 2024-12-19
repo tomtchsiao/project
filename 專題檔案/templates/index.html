@@ -1,1 +1,211 @@
-
+<!DOCTYPE html>
+<html lang="en">
+    <head> <!-- 設定網頁的標題、編碼、檢視大小 -->
+        <meta charset="UTF-8"> <!-- 設定網頁的編碼 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 設定網頁的檢視大小 -->
+        <title>The impact of daily diet and exercise on weight</title> <!-- 設定網頁的標題 -->
+        <style> /* 設定網頁的樣式 */
+             .landing-screen { /* 設定 landing-screen 的樣式 */
+            height: 100vh; /* 設定高度為 100vh */
+            width: 100%; /* 設定寬度為 100% */
+            background-color: #4CAF50;
+            display: flex; /* 設定為 flex */
+            justify-content: center; /* 設定水平置中 */
+            align-items: center; /* 設定垂直置中 */
+            color: white;
+            font-size: 3em;
+            text-align: center;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+            body, html { /* 設定 body 和 html 的樣式 */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden; /* 設定水平滾動條不顯示 */
+        }
+        .container { /* 設定 container 的樣式 */
+            min-height: 100vh;
+            width: 100%;
+            padding: 2em;
+            font-size: 1em;
+            box-sizing: border-box; /* 設定 padding 不會增加寬度 */
+            display: flex; /* 設定為 flex */
+            flex-direction: column;   /* 設定為 column */
+            align-items: center;
+        }
+        h1 { /* 設定 h1 的樣式 */
+                text-align: center;
+                color: #4CAF50;
+                margin-top: 0;
+                z-index: 2;
+                position: relative;
+                font-size: 2em;
+        }
+            form { /* 設定 form 的樣式 */
+                display: flex;
+                flex-direction: column;
+            }
+            label {    /* 設定 label 的樣式 */
+                margin-top: 10px;
+            }
+            input, select, button { /* 設定 input, select, button 的樣式 */
+                padding: 10px;
+                margin-top: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button { /* 設定 button 的樣式 */
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+            button:hover { /* 設定 button 的 hover 樣式 */
+                background-color: #45a049;
+            }
+            #result { /* 設定 result 的樣式 */
+                margin-top: 20px;
+                text-align: center;
+                font-size: 1.5em;              
+                font-weight: 700;            
+                color: #333;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+                letter-spacing: 0.5px;      
+                padding: 10px;      
+            }
+            #chartContainer {
+                 margin-top: 20px;
+                 width: 60%;        
+                 min-height: 150px; 
+                 height: auto;       
+        }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
+</head>
+<body>
+    <div class="landing-screen"> <!-- 設定 landing-screen 的樣式 -->
+        The impact of daily diet and exercise on weight
+    </div>
+    <div class="container"> <!-- 設定 container 的樣式 -->
+        <h1>The impact of daily diet and exercise on weight</h1>
+        <div class="form-row">
+        <form id="dataForm">
+            <label for="height">Height in cm:</label>
+            <input type="number" id="height" name="height" required><br>
+            <label for="weight">Weight in kg:</label>
+            <input type="number" id="weight" name="weight" required><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <label for="activityLevel">Activity Level:</label>
+            <select id="activityLevel" name="activityLevel">
+                <option value="sedentary">Sedentary</option>
+                <option value="light">Light</option>
+                <option value="moderate">Moderate</option>
+                <option value="active">Active</option>
+                <option value="very_active">Very active</option>
+            </select><br>
+            <label for="dietType">Diet type:</label>
+            <select id="dietType" name="dietType">
+                <option value="vegetarian">Vegetarian</option>
+                <option value="meat">Meat</option>
+                <option value="lacto_ovo_vegetarian">Lacto ovo vegetarian</option>
+                <option value="balanced">Balanced</option>
+            </select><br>
+            <label for="goal">Goal:</label>
+            <select id="goal" name="goal">
+                <option value="gain_weight">Gain weight</option>
+                <option value="lose_fat">Lose fat</option>
+            </select><br>
+            <label for="dailyCalories">Daily Calories:</label>
+            &nbsp;<input type="number" id="dailyCalories" name="dailyCalories" required><br>
+            &nbsp;<label for="After-days">After days:</label>
+            &nbsp;<input type="number" id="After-days" name="Afterdays" required><br>
+            <button type="submit">Submit</button> <!-- 設定 button 的樣式 -->
+        </form>
+        </div>
+        <div id="result"></div>
+        <div id="chartContainer">
+            <canvas id="resultChart"></canvas>
+        </div>
+    </div>
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            document.getElementById('result').innerText = `
+                Suggestion: ${result.suggestion}
+            `;
+    
+            // 營養標示圖表
+            const ctx = document.getElementById('resultChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(result.calorieData),
+                    datasets: [{
+                        label: 'Amounts',
+                        data: Object.values(result.calorieData),  // 從後端獲取的份數數據
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'black'  // 設置 y 軸標籤顏色
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'black'  // 設置 x 軸標籤顏色
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'black'  // 設置圖例標籤顏色
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
