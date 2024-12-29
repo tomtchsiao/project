@@ -5,7 +5,9 @@
 \usepackage{ctex}
 \usepackage{pifont}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\pgfplotsset{compat=1.16}
 \definecolor{Green}{RGB}{0,100,0}
 \definecolor{lightyellow}{RGB}{255, 255, 224}
 \setbeamertemplate{navigation symbols}{}
@@ -25,17 +27,15 @@
   \vspace*{-5ex}
 }
 \setbeamercolor{frametitle}{fg=black, bg=white}
-\setbeamerfont{frametitle}{size=\fontsize{16pt}{16pt}, family=\sffamily}
-\setbeamerfont{block title}{size=\Large, family=\sffamily}
-\setbeamerfont{block body}{size=\Large, family=\sffamily}
-\setbeamerfont{normal text}{size=\fontsize{13pt}{13pt}, family=\sffamily}
-\setbeamerfont{itemize}{size=\fontsize{13pt}{13pt}, family=\sffamily}
-\setbeamerfont{itemize subitem}{size=\fontsize{13pt}{13pt}, family=\sffamily}
+\setbeamerfont{frametitle}{size=\fontsize{16pt}{16pt}}
+\setbeamerfont{block title}{size=\Large}
+\setbeamerfont{block body}{size=\Large}
+\setbeamerfont{normal text}{size=\fontsize{14pt}{14pt}}
+\setbeamerfont{itemize}{size=\fontsize{14pt}{14pt}}
+\setbeamerfont{itemize subitem}{size=\fontsize{14pt}{14pt}}
 \setbeamercolor{title}{fg=black, bg=white}
 \setbeamercolor{author}{fg=black, bg=white}
 \setbeamercolor{date}{fg=black, bg=white}
-\setbeamerfont{headline}{series=\mdseries} 
-\setbeamerfont{footline}{series=\mdseries} 
 \setbeamercolor{section in head/foot}{bg=white, fg=black} 
 \setbeamercolor{author in head/foot}{bg=white, fg=black} 
 \setbeamercolor{title in head/foot}{bg=white, fg=black} 
