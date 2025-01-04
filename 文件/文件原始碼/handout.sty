@@ -1,0 +1,78 @@
+\ProvidesPackage{handout}
+\usetheme{default}
+\usepackage{beamerthemesplit}
+\usepackage{xcolor}
+\usepackage{xeCJK}
+\usepackage{pifont}
+\setCJKmainfont{全字庫正楷體}
+\setmainfont{Times New Roman Cyr}
+\setcounter{framenumber}{-1}
+\definecolor{Green}{RGB}{0,100,0}
+\definecolor{lightyellow}{RGB}{255, 255, 224}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{invisible}
+\setbeamercolor{item}{fg=Green}
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\textcolor{Green}{\rule{0.8ex}{0.8ex}}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\textcolor{Green}{\rule{0.6ex}{0.6ex}}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\textcolor{Green}{\rule{0.4ex}{0.4ex}}}}
+\setbeamertemplate{section in toc}[sections unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{frametitle}{
+  \vspace*{0ex}
+  \begin{center}
+    \vbox{\strut\insertframetitle\strut}
+  \end{center}
+  \vspace*{-3ex}
+}
+\setbeamerfont{title}{family=\fontspec{Times New Roman Cyr}, size=\Large}
+\setbeamerfont{frametitle}{family=\fontspec{Times New Roman Cyr}, size=\Large}
+\setbeamerfont{author}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{date}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{section in toc}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{center}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{flushleft}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{LARGE}{family=\fontspec{Times New Roman Cyr}, size=\LARGE}
+\setbeamerfont{Large}{family=\fontspec{Times New Roman Cyr}, size=\Large}
+\setbeamerfont{large}{family=\fontspec{Times New Roman Cyr}, size=\large}
+\setbeamerfont{normal text}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{small}{family=\fontspec{Times New Roman Cyr}, size=\small}
+\setbeamerfont{itemize/enumerate body}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{body}{family=\fontspec{Times New Roman Cyr}, size=\Large}
+\setbeamerfont{tabular}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{tabular body}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamercolor{frametitle}{fg=black, bg=white}
+\setbeamercolor{title}{fg=black, bg=white}
+\setbeamercolor{author}{fg=black, bg=white}
+\setbeamercolor{date}{fg=black, bg=white}
+\setbeamercolor{section in head/foot}{bg=white, fg=black}
+\setbeamercolor{author in head/foot}{bg=white, fg=black}
+\setbeamercolor{title in head/foot}{bg=white, fg=black}
+\setbeamercolor{date in head/foot}{bg=white, fg=black}
+\setbeamercolor{page in head/foot}{bg=white, fg=black}
+\setbeamertemplate{footline}{
+  \leavevmode%
+\hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
+      \insertframenumber{} / \inserttotalframenumber \hspace*{1em}
+    \end{beamercolorbox}}%
+  \vskip1pt%
+}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,left]{section in head/foot}%
+      \hspace*{1em}\insertsection
+    \end{beamercolorbox}}%
+  \vskip1pt%
+}
+\setbeamercolor{block body}{bg=lightyellow}
+\setbeamercolor{block title}{bg=yellow!55!white, fg=black}
+\setbeamertemplate{itemize items}[square]
+\newenvironment{coloreditemize}[1][]{%
+  \begin{itemize}[#1]%
+    \setbeamercolor{item}{fg=#1}%
+}{%
+  \end{itemize}%
+}
