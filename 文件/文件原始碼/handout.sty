@@ -2,10 +2,12 @@
 \usetheme{default}
 \usepackage{beamerthemesplit}
 \usepackage{xcolor}
+\usepackage{fontspec}
 \usepackage{xeCJK}
-\usepackage{pifont}
-\setCJKmainfont{全字庫正楷體}
-\setmainfont{Times New Roman Cyr}
+\usepackage{setspace}
+\usepackage{hyperref}
+\setCJKmainfont{標楷體-繁}
+\setmainfont{Times New Roman}
 \setcounter{framenumber}{-1}
 \definecolor{Green}{RGB}{0,100,0}
 \definecolor{lightyellow}{RGB}{255, 255, 224}
@@ -21,27 +23,12 @@
 \setbeamertemplate{frametitle}{
   \vspace*{0ex}
   \begin{center}
-    \vbox{\strut\insertframetitle\strut}
+  \vbox{\strut\fontspec{Times New Roman}\insertframetitle\strut}
   \end{center}
   \vspace*{-3ex}
 }
-\setbeamerfont{title}{family=\fontspec{Times New Roman Cyr}, size=\Large}
-\setbeamerfont{frametitle}{family=\fontspec{Times New Roman Cyr}, size=\Large}
-\setbeamerfont{author}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{date}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{section in toc}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{center}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{flushleft}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{LARGE}{family=\fontspec{Times New Roman Cyr}, size=\LARGE}
-\setbeamerfont{Large}{family=\fontspec{Times New Roman Cyr}, size=\Large}
-\setbeamerfont{large}{family=\fontspec{Times New Roman Cyr}, size=\large}
-\setbeamerfont{normal text}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{small}{family=\fontspec{Times New Roman Cyr}, size=\small}
-\setbeamerfont{itemize/enumerate body}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{itemize/enumerate subbody}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{body}{family=\fontspec{Times New Roman Cyr}, size=\Large}
-\setbeamerfont{tabular}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
-\setbeamerfont{tabular body}{family=\fontspec{Times New Roman Cyr}, size=\normalsize}
+\setbeamerfont{block title}{family=\fontspec{Times New Roman}}
+\setbeamerfont{frametitle}{family=\fontspec{Times New Roman}}
 \setbeamercolor{frametitle}{fg=black, bg=white}
 \setbeamercolor{title}{fg=black, bg=white}
 \setbeamercolor{author}{fg=black, bg=white}
@@ -55,7 +42,7 @@
   \leavevmode%
 \hbox{%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
-      \insertframenumber{} / \inserttotalframenumber \hspace*{1em}
+      \usebeamerfont{framenumber}\fontspec{Times New Roman}\textcolor[RGB]{75,75,75}{\insertframenumber{}\hspace*{0.15em} / \hspace*{0.15em}\inserttotalframenumber} \hspace*{0.3em}
     \end{beamercolorbox}}%
   \vskip1pt%
 }
