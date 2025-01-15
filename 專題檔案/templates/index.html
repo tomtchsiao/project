@@ -44,44 +44,47 @@
                 position: relative;
                 font-size: 2em;
         }
-            form { /* 設定 form 的樣式 */
-                display: flex;
-                flex-direction: column;
-            }
-            label {    /* 設定 label 的樣式 */
-                margin-top: 10px;
-            }
-            input, select, button { /* 設定 input, select, button 的樣式 */
-                padding: 10px;
-                margin-top: 5px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            button { /* 設定 button 的樣式 */
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                cursor: pointer;
-                margin-top: 20px;
-            }
-            button:hover { /* 設定 button 的 hover 樣式 */
-                background-color: #45a049;
-            }
-            #result { /* 設定 result 的樣式 */
-                margin-top: 20px;
-                text-align: center !important;
-                font-size: 1.5em;              
-                font-weight: 700;            
-                color: #333;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-                letter-spacing: 0.5px;      
-                padding: 10px;      
-            }
-            #chartContainer {
-                 margin-top: 20px;
-                 width: 60%;        
-                 min-height: 150px; 
-                 height: auto;       
+        form { /* 設定 form 的樣式 */
+            display: flex;
+            flex-direction: column;
+        }
+        label {    /* 設定 label 的樣式 */
+            margin-top: 10px;
+        }
+        input, select, button { /* 設定 input, select, button 的樣式 */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button { /* 設定 button 的樣式 */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover { /* 設定 button 的 hover 樣式 */
+            background-color: #45a049;
+        }
+        #result { /* 設定 result 的樣式 */
+            margin-top: 20px;
+            text-align: center !important;
+            font-size: 1.5em;              
+            font-weight: 700;            
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;      
+            padding: 10px;      
+        }
+        #chartContainer {
+            margin-top: 20px;
+            width: 60%;        
+            min-height: 150px; 
+            height: auto;       
+        }
+        .suggestion, .reference {
+            text-align: left !important;
         }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
@@ -137,6 +140,10 @@
             <canvas id="resultChart"></canvas>
         </div>
     </div>
+    <div class="reference">
+        <h3>Reference</h3>
+        <a href="https://www.hpa.gov.tw/File/Attach/6712/File_6253.pdf">HPA, Ministry of Health and Weflare</a>.
+        </div>
     <script>
         document.getElementById('dataForm').addEventListener('submit', async function(event) {
             event.preventDefault();
@@ -150,10 +157,9 @@
                 body: JSON.stringify(data)
             });
             const result = await response.json();
-            document.getElementById('result').innerText = `
-                Suggestion: ${result.suggestion}
+            document.getElementById('result').innerHTML = `
+                <div class="suggestion">Suggestion: ${result.suggestion}</div>
             `;
-    
             // 營養標示圖表
             const ctx = document.getElementById('resultChart').getContext('2d');
             new Chart(ctx, {
