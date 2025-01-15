@@ -58,9 +58,9 @@ The impact of daily diet and exercise on weight
     \vspace{0.15 cm}
     \item We aim to establish a website to help them check whether their \alert{healthy} is normal.
     \vspace{0.15 cm}
-    \item Given their \textcolor{blue}{age, gender, height, weight, eating habits, activity level, goal, daily calories} and \textcolor{blue}{After days}. 
+    \item Given their \textcolor{blue}{age, gender, height, weight, eating habits, activity level, goal, daily calories} and \textcolor{blue}{after days}. 
     \vspace{0.15 cm}
-    \item Displays result with suggestions and amounts of each nutrient in histogram.
+    \item Displays result with suggestions and amounts of each nutrient in a histogram.
     \vspace{0.15 cm}
 \end{itemize}
 \end{frame}
@@ -80,11 +80,11 @@ The impact of daily diet and exercise on weight
 \begin{frame}
 \frametitle{Tools for develop model}
 \begin{itemize}
-    \item Programming Language: Python, HTML, CSS \\
+    \item Programming Language via CSS, HTML, JavaScript and Python. \\
     \vspace{0.15 cm}
-    \item Data transmitting: Flask \\
+    \item Data transmitting via Flask. \\
     \vspace{0.15 cm}
-    \item Aesthetic: JavaScript 
+    \item Aesthetic via JavaScript.
     \vspace{0.15 cm}
 \end{itemize}
 \end{frame}
@@ -110,7 +110,7 @@ The impact of daily diet and exercise on weight
         \begin{block}{Our anticipate}
          \setbeamercolor{itemize item}{fg=red}
             \begin{itemize}
-                \item Accurately calculate the actual weight using a series of indexes, such as BMR, TDEE. \\
+                \item Accurately calculate the actual results using BMR, TDEE, and so on. \\
                 \item Provide a histogram to show the amounts of each nutrient. 
             \end{itemize}
         \end{block}
@@ -120,10 +120,11 @@ The impact of daily diet and exercise on weight
         \setbeamerfont{block title}{size=\normalsize}
         \setbeamerfont{block body}{size=\normalsize}
         \setbeamercolor{block title}{bg=Green,fg=white}
-        \begin{block}{Our model anticipate}
+        \begin{block}{Our website anticipate}
             \begin{itemize}
             \setbeamercolor{itemize item}{fg=Green}
-                \item Provide suggestion, different histograms for each nutrient.
+                \item Suggestion.
+                \item A histogram displays each nutrient.
             \end{itemize}
         \end{block}
 \end{minipage}
@@ -139,11 +140,11 @@ The impact of daily diet and exercise on weight
 \begin{frame}{Results (Continued)}
 \vspace{1.5cm}
 \sloppy
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.35}
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Sedentary} & \textbf{Light} & \textbf{Moderate} & \textbf{Active} & \textbf{Very active} \\
+Sedentary & Light & Moderate & Active & Very active \\
 \hline
 1.2 & 1.375 & 1.55 & 1.725 & 1.9 \\
 \hline
@@ -151,11 +152,11 @@ The impact of daily diet and exercise on weight
 \vspace{0.5cm} 
 \\
 Table I. Consume calories from the exercise. 
-\vspace{1cm} 
+\vspace{0.5cm} 
 \\
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Vegetarian} & \textbf{Meat} & \textbf{Lacto ovo vegetarian} & \textbf{Balanced} \\
+Vegetarian & Meat & Lacto ovo vegetarian & Balanced \\
 \hline
 1800 & 2500 & 2200 & 2000 \\
 \hline
@@ -179,9 +180,6 @@ Table II. Consume calories from the daily diet.
 \sloppy
 \begin{align*}
 \text{Each day} = \text{BMR} \times \text{Activity}
-\end{align*}
-\begin{align*}
-\text{Intake} = \text{Daily diet type}
 \end{align*}
 \begin{align*}
 \text{Calorie deficit} = \text{Intake} - \text{Calories per day}
@@ -225,7 +223,7 @@ Table II. Consume calories from the daily diet.
 \normalsize
 \setbeamerfont{block title}{size=\normalsize}
 \setbeamerfont{block body}{size=\normalsize}
-\setbeamercolor{itemize item}{fg=Green}
+\setbeamercolor{itemize item}{fg=Blue}
 \begin{itemize}
     \setbeamerfont{itemize}{size=\small}
     \item Ren-Song Ko
