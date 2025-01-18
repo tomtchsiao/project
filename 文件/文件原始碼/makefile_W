@@ -1,0 +1,12 @@
+LATEX = xelatex
+RM = del /F /Q
+TEXFILES = $(wildcard *.tex)
+PDFS = $(TEXFILES:.tex=.pdf)
+all: $(PDFS) clean
+%.pdf: %.tex
+	$(LATEX) $<
+	$(LATEX) $<
+clean:
+	$(RM) *.aux *.log *.out *.toc *.synctex.gz *.nav *.snm
+cleanall:
+	$(RM) *.pdf
