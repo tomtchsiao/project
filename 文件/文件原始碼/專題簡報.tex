@@ -53,13 +53,17 @@ The impact of daily diet and exercise on weight
 \end{frame}
 \begin{frame}
 \frametitle{Introduction}
+\pause
 \begin{itemize}
     \item People emphasize their health and strengthen it by exercising at the gym, in the park, or even at home.
     \vspace{0.15 cm}
+    \pause
     \item We aim to establish a website to help them check whether their \alert{healthy} is normal.
     \vspace{0.15 cm}
+    \pause
     \item Given their \textcolor{blue}{age, gender, height, weight, eating habits, activity level, goal, daily calories} and \textcolor{blue}{after days}. 
     \vspace{0.15 cm}
+    \pause
     \item Displays result with suggestions and amounts of each nutrient in a histogram.
     \vspace{0.15 cm}
 \end{itemize}
@@ -80,10 +84,13 @@ The impact of daily diet and exercise on weight
 \begin{frame}
 \frametitle{Tools for develop model}
 \begin{itemize}
+    \pause
     \item Programming Language via CSS, HTML, JavaScript and Python. \\
     \vspace{0.15 cm}
+    \pause
     \item Data transmitting via Flask. \\
     \vspace{0.15 cm}
+    \pause
     \item Aesthetic via JavaScript.
     \vspace{0.15 cm}
 \end{itemize}
@@ -103,19 +110,23 @@ The impact of daily diet and exercise on weight
 \end{frame}
 \begin{frame}
 \frametitle{Results}
+    \pause
      \begin{minipage}[t]{0.48\textwidth}
          \setbeamercolor{block title}{bg=red,fg=white}
          \setbeamerfont{block title}{size=\normalsize}
          \setbeamerfont{block body}{size=\normalsize}
         \begin{block}{Our anticipate}
          \setbeamercolor{itemize item}{fg=red}
+         \pause
             \begin{itemize}
                 \item Accurately calculate the actual results using BMR, TDEE, and so on. \\
+                \pause
                 \item Provide a histogram to show the amounts of each nutrient. 
             \end{itemize}
         \end{block}
     \end{minipage}%
     \hfill
+    \pause
     \begin{minipage}[t]{0.48\textwidth}
         \setbeamerfont{block title}{size=\normalsize}
         \setbeamerfont{block body}{size=\normalsize}
@@ -123,13 +134,16 @@ The impact of daily diet and exercise on weight
         \begin{block}{Our website anticipate}
             \begin{itemize}
             \setbeamercolor{itemize item}{fg=Green}
+            \pause
                 \item Suggestion.
+                \pause
                 \item A histogram displays each nutrient.
             \end{itemize}
         \end{block}
 \end{minipage}
 \end{frame}
 \begin{frame}{Results (Continued)}
+\pause
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Example.png}
@@ -140,6 +154,7 @@ The impact of daily diet and exercise on weight
 \begin{frame}{Results (Continued)}
 \vspace{1.5cm}
 \sloppy
+\pause
 \renewcommand{\arraystretch}{1.35}
 \centering
 \begin{tabular}{|c|c|c|c|c|}
@@ -154,6 +169,7 @@ Sedentary & Light & Moderate & Active & Very active \\
 Table I. Consume calories from the exercise. 
 \vspace{0.5cm} 
 \\
+\pause
 \begin{tabular}{|c|c|c|c|}
 \hline
 Vegetarian & Meat & Lacto ovo vegetarian & Balanced \\
@@ -169,27 +185,36 @@ Table II. Consume calories from the daily diet.
 \end{frame}
 \begin{frame}{Results (Continued)}
 \sloppy
+\pause
 \begin{align*}
     \text{Male's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
     &\quad - (4.92 \times \text{age}) + (166 \times \text{gender} - 161) \\
+\end{align*}
+\pause
+\begin{align*}
     \text{Female's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
     &\quad - (4.92 \times \text{age}) + (166 \times \text{gender} - 161)
-    \end{align*}
+\end{align*}
 \end{frame}
 \begin{frame}{Results (Continued)}
 \sloppy
+\pause
 \begin{align*}
 \text{Each day} = \text{BMR} \times \text{Activity}
 \end{align*}
+\pause
 \begin{align*}
 \text{Calorie deficit} = \text{Intake} - \text{Calories per day}
 \end{align*}
+\pause
 \begin{align*}
 \text{Weight changes} = \frac{\text{Calorie deficit}}{7700} 
 \end{align*}
+\pause
 \begin{align*}
-    \text{Actual weight}= \text{Weight} + \text{Weight changes} \times \text{After days}
-    \end{align*}
+\text{Actual weight}= \text{Weight} + \text{Weight changes} \times \text{After days}
+\end{align*}
+\pause
 \begin{align*}
 \text{BMI} = \frac{\text{Weight}}{\text{Height}^2}
 \end{align*}
@@ -210,11 +235,14 @@ Table II. Consume calories from the daily diet.
 \begin{frame}
 \frametitle{Conclusion}
     \begin{itemize}
+        \pause
         \vspace{0.15 cm}
         \item Using precise tools to calculate the actual weight, ensuring that users receive accurate and reliable measurements for better health management.
         \vspace{0.15 cm}
+        \pause
         \item Providing accurate options for computation, allowing users to input various parameters and receive tailored recommendations based on their unique needs.
         \vspace{0.15 cm}
+        \pause
         \item We learned fundamental front-end and back-end development, including figure display using JavaScript and Python, to develop an application that seamlessly integrates user data and visualizes results effectively.
     \end{itemize}
 \end{frame}
@@ -225,6 +253,7 @@ Table II. Consume calories from the daily diet.
 \setbeamerfont{block body}{size=\normalsize}
 \setbeamercolor{itemize item}{fg=Blue}
 \begin{itemize}
+    \pause
     \setbeamerfont{itemize}{size=\small}
     \item Ren-Song Ko
     \item Wen-Shuo Hsu
@@ -232,6 +261,7 @@ Table II. Consume calories from the daily diet.
 \end{itemize}
 \end{block}
 \vspace{1.5 cm}
+\pause
 \begin{block}{}
 \normalsize
     \setbeamerfont{block title}{size=\normalsize}
