@@ -58,7 +58,7 @@ def predict():
     elif 25 <= bmi < 29.9:
         suggestion = "You are overweight. Consider reducing your calorie intake and increasing aerobic exercise."
     else:
-        suggestion = "You are obese. Consult a doctor and create a weight loss plan."
+        suggestion = "You are obese. Consult doctor and create a weight loss plan."
     calorie_data = {
         'Whole Grains': daily_calorie_intake * 0.3 / 70,
         'Beans, Fish, Eggs, Meat': daily_calorie_intake * 0.2 / 75,

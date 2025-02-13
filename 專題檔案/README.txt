@@ -1,12 +1,14 @@
 Guide of the project
+---------------------------------------------------------------------
 
-I. Using Windows / Mac / Linux command line / terminal, please make sure that install Python.
+Using command line or terminal, please make sure that install Python.
 
 Install flask package via pip.
 
-Next, type below command to view the result.
-
 > pip install flask 
+
+Using python3 to execute the project.
+
 > python3 app.py
 
-Last, paste the URL to browser.
+Last, paste the URL (http://127.0.0.1:5000/) to browser.
