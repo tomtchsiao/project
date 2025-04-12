@@ -87,8 +87,8 @@
         color: blue;
         text-decoration: none;
         }
-        </style>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
 </head>
 <body>
     <div class="landing-screen"> <!-- 設定 landing-screen 的樣式 -->
@@ -130,89 +130,94 @@
                 <option value="lose_fat">Lose fat</option>
             </select><br>
             <label for="dailyCalories">Daily Calories:</label>
-            &nbsp;<input type="number" id="dailyCalories" name="dailyCalories" required><br>
-            &nbsp;<label for="After-days">After days:</label>
-            &nbsp;<input type="number" id="After-days" name="Afterdays" required><br>
+            <input type="number" id="dailyCalories" name="dailyCalories" required><br>
+            <label for="After-days">After days:</label>
+            <input type="number" id="After-days" name="Afterdays" required><br>
             <button type="submit">Submit</button> <!-- 設定 button 的樣式 -->
         </form>
         </div>
-        <div id="result"></div>
-        <div id="chartContainer">
-            <canvas id="resultChart"></canvas>
+        <div id="result">
+        <h2 style="text-align: center; color: #4CAF50; margin-bottom: 10px;">Analysis Results</h2>
+        </div>
+        <div id="chartContainer" style="display: flex; justify-content: center; margin-top: 20px;">
+        <canvas id="resultChart"></canvas>
         </div>
     </div>
-    <div class="reference">
-        <h3>Reference</h3>
-        <a href="https://www.hpa.gov.tw/File/Attach/6712/File_6253.pdf">HPA, Ministry of Health and Weflare</a>.
-        </div>
     <script>
-        document.getElementById('dataForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            const response = await fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            const result = await response.json();
-            document.getElementById('result').innerHTML = `
-                <div class="suggestion">Suggestion: ${result.suggestion}</div>
-            `;
-            // 營養標示圖表
-            const ctx = document.getElementById('resultChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(result.calorieData),
-                    datasets: [{
-                        label: 'Amounts',
-                        data: Object.values(result.calorieData),  // 從後端獲取的份數數據
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: 'black'  // 設置 y 軸標籤顏色
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                color: 'black'  // 設置 x 軸標籤顏色
-                            }
+    document.getElementById('dataForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    try {
+        const response = await fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        // 插入後端返回的 HTML
+        document.getElementById('result').innerHTML = result.html;
+        // 繪製圖表
+        const ctx = document.getElementById('resultChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: result.chartData.labels,
+                datasets: [{
+                    label: 'Amounts',
+                    data: result.chartData.values,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'black'
                         }
                     },
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: 'black'  // 設置圖例標籤顏色
-                            }
+                    x: {
+                        ticks: {
+                            color: 'black'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'black'
                         }
                     }
                 }
-            });
+            }
         });
-    </script>
+    } 
+    catch (error) {
+        console.error('Error:', error);
+    }
+    });
+</script>
 </body>
 </html>
