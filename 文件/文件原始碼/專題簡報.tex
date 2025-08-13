@@ -2,16 +2,12 @@
 \usepackage{handout}
 \definecolor{Green}{RGB}{0,100,0}
 \title{The impact of daily diet and exercise on weight}
-\author{\href{mailto: korenson@cs.ccu.edu.tw}{Ren-Song Ko}, \href{mailto: hwshuo111u@cs.ccu.edu.tw}{Wen-Shou Hsu}, and  \href{mailto: stchi111u@cs.ccu.edu.tw}{Tzu-Chi Hsiao}}
+\author{\href{mailto: hwshuo111u@cs.ccu.edu.tw}{Wen-Shou Hsu}, and  \href{mailto: stchi111u@cs.ccu.edu.tw}{Tzu-Chi Hsiao}}
 \date{}
 \begin{document}
 \fontspec{Times New Roman}  
 \begin{frame}
 \titlepage
-\begin{center}
-Official website is available \href{https://www2.cs.ccu.edu.tw/~stchi111u/project/}{here}. \\
-Source code is available \href{https://www2.cs.ccu.edu.tw/~stchi111u/project/下載/index.html}{here}.
-\end{center}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.10\textwidth]{logo.png}
@@ -105,7 +101,7 @@ National Chung Cheng University, Chiayi county, Taiwan
 \begin{frame}{Results (Continued)}
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{Example.png}
+\includegraphics[width=\textwidth]{Example.jpg}
 \end{figure}
 \centering
 Figure I. Results of entering data.
@@ -140,29 +136,26 @@ Table II. Consume calories from the daily diet.
 \sloppy
 \begin{align*}
 \text{Male's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
-&\quad - (4.92 \times \text{age}) + (166 \times \text{gender} - 161) \\
+&\quad - (4.92 \times \text{age}) + 5 \\
 \end{align*}
 \begin{align*}
 \text{Female's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
-&\quad - (4.92 \times \text{age}) + (166 \times \text{gender} - 161)
+&\quad - (4.92 \times \text{age}) - 161
 \end{align*}
 \end{frame}
 \begin{frame}{Results (Continued)}
 \sloppy
 \begin{align*}
-\text{Each day} = \text{BMR} \times \text{Activity}
+\text{Calorie deficit} &= \text{Daily calorie intake} - \text{TDEE}
 \end{align*}
 \begin{align*}
-\text{Calorie deficit} = \text{Intake} - \text{Calories per day}
+\text{Weight changes} &= \frac{\text{Calorie deficit}}{7700} 
 \end{align*}
 \begin{align*}
-\text{Weight changes} = \frac{\text{Calorie deficit}}{7700} 
+\text{Actual weight} &= \text{Weight} + \text{Weight changes per day} \times \text{After days}
 \end{align*}
 \begin{align*}
-\text{Actual weight}= \text{Weight} + \text{Weight changes} \times \text{After days}
-\end{align*}
-\begin{align*}
-\text{BMI} = \frac{\text{Actual Weight}}{\text{Height}^2}
+\text{BMI} &= \frac{\text{Actual Weight}}{\text{Height}^2}
 \end{align*}
 \end{frame}
 \begin{frame}
@@ -192,7 +185,6 @@ Table II. Consume calories from the daily diet.
 \setbeamercolor{itemize item}{fg=Blue}
 \begin{itemize}
 \setbeamerfont{itemize}{size=\small}
-\item Ren-Song Ko
 \item Wen-Shuo Hsu
 \item Tzu-Chi Hsiao
 \end{itemize}

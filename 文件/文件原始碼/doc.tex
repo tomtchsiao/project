@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm,textwidth=17cm,textheight=23cm]{geometry}
+\usepackage{xeCJK}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\setCJKmainfont{標楷體-繁}
+\setmainfont{Times New Roman}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancyhead[L]{口頭報告格式}
+\fancyhead[R]{\today}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\title{口頭報告格式}
+\author{蕭子期}
+\date{\today}
+\begin{document}
+\setstretch{1.5}
+\thispagestyle{fancy}
+\begin{center}
+\fontsize{16pt}{16pt}\selectfont 口頭報告格式
+\end{center}
+\fontsize{14pt}{14pt}\selectfont
+\section*{A. Tables}
+Following is the different daily diet will consume calories: \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Sedentary & Light & Moderate & Active & Very active \\
+\hline
+1.2 & 1.375 & 1.55 & 1.725 & 1.9 \\
+\hline
+\end{tabular}
+\vspace{1em} \\
+Table I. Consume calories from the exercise. 
+\vspace{1em} \\
+\begin{tabular}{|c|c|c|c|}
+\hline
+Vegetarian & Meat & Lacto ovo vegetarian & Balanced \\
+\hline
+1800 & 2500 & 2200 & 2000 \\
+\hline
+\end{tabular}
+\vspace{1em} \\
+Table II. Consume calories from the daily diet.
+\end{center}
+\section*{B. Formulaes}
+The following formulaes are used to calculate BMR, daily calorie need and actual weight:
+\begin{align*}
+\text{Male's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
+&\quad - (4.92 \times \text{age}) + 5 \\
+\text{Female's BMR} &= (9.99 \times \text{weight}) + (6.25 \times \text{height}) \\
+&\quad - (4.92 \times \text{age}) - 161 \\
+\text{Calorie deficit} &= \text{Daily calorie intake} - \text{TDEE} \\
+\text{Weight changes} &= \frac{\text{Calorie deficit}}{7700} \\
+\text{Actual weight} &= \text{Weight} + \text{Weight changes per day} \times \text{After days} \\
+\text{BMI} &= \frac{\text{Actual Weight}}{\text{Height}^2}
+\end{align*}
+\end{document}
