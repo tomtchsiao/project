@@ -42,9 +42,9 @@ def predict():
     gender = data.get('gender', 'male')
     activity_level = data.get('activityLevel', 'sedentary')
    # 取得飲食習慣和每日熱量攝取
-    diet_type = data.get('dietType', 'balanced')
-    gain_or_lose = data.get('goal', 'gain_weight')  # 預設值為 'gain_weight'
-    daily_calories = float(data['dailyCalories'])
+    diet_type = data.get('dietType', 'vegetarian')
+    gain_or_lose = data.get('goal', 'gain_weight')
+    # daily_calories = float(data['dailyCalories'])
     # 計算 BMR 和 TDEE
     bmr = calculate_bmr(weight, height, age, gender)
     tdee = calculate_tdee(bmr, activity_level)
@@ -56,18 +56,21 @@ def predict():
         'balanced': 2200
     }
     Afterdays = int(data['Afterdays'])
-    if daily_calories <= 0 or Afterdays <= 0:
+    if Afterdays <= 0 or Afterdays > 93:
      return jsonify({'error': 'Invalid input values.'})
     daily_calorie_intake = diet_calories.get(diet_type, 2200)
     if gain_or_lose == 'gain_weight':
-        daily_calorie_intake += 500  # 增重時增加 500 kcal
+        weight += 0.5 * (Afterdays / 7)  
     elif gain_or_lose == 'lose_fat':
-        daily_calorie_intake -= 500  # 減脂時減少 500 kcal
+        weight -= 0.5 * (Afterdays / 7)  
     # 計算目前體重變化
-    calorie_deficit = daily_calorie_intake - daily_calories
+    calorie_deficit = daily_calorie_intake - tdee
     weight_change_per_day = calorie_deficit / 7700
     height_m = height / 100  # 將身高從公分轉換為公尺
-    actual_weight = weight + weight_change_per_day * Afterdays  # 計算實際體重
+    if gain_or_lose == 'gain_weight':
+        actual_weight = weight + weight_change_per_day * Afterdays  # 計算實際體重
+    elif gain_or_lose == 'lose_fat':
+        actual_weight = weight - weight_change_per_day * Afterdays  # 計算實際體重
     bmi = actual_weight / (height_m ** 2)
     # 提供使用者建議
     if bmi < 18.5:
