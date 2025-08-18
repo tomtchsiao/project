@@ -2,26 +2,38 @@
 \usetheme{default}
 \usepackage{beamerthemesplit}
 \usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{xeCJK}
 \usepackage{setspace}
 \usepackage{hyperref}
-\usepackage{fontspec}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{amsmath,amssymb,amsthm}
+\setCJKmainfont{標楷體-繁}
+\AtBeginDocument{\large}
 \setmainfont{Times New Roman}
 \setcounter{framenumber}{-1}
-\definecolor{Blue}{RGB}{0, 105, 148}
+\definecolor{Blue}{RGB}{0, 56, 168}
+\definecolor{Green}{RGB}{0,100,0}
+\definecolor{Purple}{RGB}{120,0,120}
 \definecolor{lightyellow}{RGB}{255, 255, 224}
 \setbeamertemplate{navigation symbols}{}
 \setbeamercovered{invisible}
 \setbeamercolor{item}{fg=Blue}
-\setbeamertemplate{itemize item}{\raisebox{0.2em}{\textcolor{Blue}{\rule{0.8ex}{0.8ex}}}}
-\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\textcolor{Blue}{\rule{0.6ex}{0.6ex}}}}
-\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\textcolor{Blue}{\rule{0.4ex}{0.4ex}}}}
+\setbeamertemplate{itemize item}{\raisebox{0.1em}{\textcolor{Blue}{\rule{0.6ex}{0.6ex}}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.05em}{\textcolor{Green}{\rule{0.4ex}{0.4ex}}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.05em}{\textcolor{Purple}{\rule{0.2ex}{0.2ex}}}}
 \setbeamertemplate{section in toc}[sections unnumbered]
 \setbeamertemplate{subsection in toc}[ball unnumbered]
 \setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{frametitle}{
-  \vspace*{-1ex}
+  \vspace*{-2ex}
   \begin{center}
-  \vbox{\strut\fontspec{Times New Roman}\insertframetitle\strut}
+  \vbox{\strut\fontspec{Times New Roman}\Large\insertframetitle\strut}
   \end{center}
   \vspace*{-4ex}
 }
@@ -37,10 +49,10 @@
 \setbeamercolor{date in head/foot}{bg=white, fg=black}
 \setbeamercolor{page in head/foot}{bg=white, fg=black}
 \setbeamertemplate{footline}{
-  \leavevmode%
+ \leavevmode%
 \hbox{%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
-      \usebeamerfont{framenumber}\fontspec{Times New Roman}\textcolor[RGB]{75,75,75}{\insertframenumber{}\hspace*{0.15em} / \hspace*{0.15em}\inserttotalframenumber} \hspace*{0.3em}
+      \usebeamerfont{framenumber}\fontspec{Times New Roman}\textcolor[RGB]{80,80,80}{\insertframenumber{}\hspace*{0.15em} / \hspace*{0.15em}\inserttotalframenumber} \hspace*{0.2em}
     \end{beamercolorbox}}%
   \vskip1pt%
 }
@@ -48,10 +60,11 @@
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,left]{section in head/foot}%
-      \hspace*{1em}\insertsection
+      \hspace*{1.3em}\insertsection
     \end{beamercolorbox}}%
   \vskip1pt%
 }
+\setstretch{1.2}
 \setbeamercolor{block body}{bg=lightyellow}
 \setbeamercolor{block title}{bg=yellow!55!white, fg=black}
 \setbeamertemplate{itemize items}[square]
@@ -61,3 +74,8 @@
 }{%
   \end{itemize}%
 }
+\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\tikz\draw[Green, line width=0.3mm] (0,0) rectangle (0.2em,0.2em);}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\tikz\fill[Purple] (0,0) circle (0.1em);}}
+\newcommand{\monthname}[1]{%
+\ifcase#1\or Jan.\or Feb.\or Mar.\or Apr.\or May.\or Jun.\or Jul.\or Aug.\or Sep.\or Oct.\or Nov.\or Dec.\fi}
+\renewcommand{\today}{\number\day~\monthname{\month}~\number\year}
