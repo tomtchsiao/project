@@ -34,7 +34,7 @@
   \begin{center}
   \vbox{\strut\fontspec{Times New Roman}\Large\insertframetitle\strut}
   \end{center}
-  \vspace*{-4ex}
+  \vspace*{-6ex}
 }
 \setbeamerfont{block title}{family=\fontspec{Times New Roman}}
 \setbeamerfont{frametitle}{family=\fontspec{Times New Roman}}
@@ -73,8 +73,8 @@
 }{%
   \end{itemize}%
 }
-\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\tikz\draw[Green, line width=0.3mm] (0,0) rectangle (0.2em,0.2em);}}
-\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\tikz\fill[Purple] (0,0) circle (0.1em);}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.15em}{\tikz\draw[Green, line width=0.3mm] (0,0) rectangle (0.4em,0.4em);}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.15em}{\tikz\draw[Purple, line width=0.3mm] (0,0) circle (0.25em);}}
 \newcommand{\monthname}[1]{%
 \ifcase#1\or Jan.\or Feb.\or Mar.\or Apr.\or May.\or Jun.\or Jul.\or Aug.\or Sep.\or Oct.\or Nov.\or Dec.\fi}
 \renewcommand{\today}{\number\day~\monthname{\month}~\number\year}
